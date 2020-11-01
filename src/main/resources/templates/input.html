@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert New Phone</title>
+</head>
+<body>
+	<form  th:object="${newPhone}" th:action="@{/update/{id}(id=${newPhone.id})}" method=POST>
+		Brand: <input name="brand" size = "20" th:field="*{brand}"> <br />
+		Model: <input name="model" size = "20" th:field="*{model}"> <br />
+		Carrier: <input name="carrier" size="20" th:field="*{carrier}"> <br />
+		<input name="submit" type="submit" value="submit" />
+	</form>
+	<a href="viewAll">View All Phones</a>
+</body>
+</html>

@@ -20,26 +20,26 @@ public class SpringPhonesApplication {
 		SpringApplication.run(SpringPhonesApplication.class, args);
 	}
 	
-	@Autowired
-	PhoneRepository repo;
-	
-	@Override
-	public void run(String... args) throws Exception {
-		ApplicationContext appContext = new AnnotationConfigApplicationContext(BeanConfiguration.class);
-		
-		//Using an existing bean
-		Phone p = appContext.getBean("phone", Phone.class);
-		p.setCarrier("T-Mobile");
-		repo.save(p);
-		
-		//creating a bean to use - not managed by Spring
-		Phone c = new Phone("Samsung", "Galaxy Fold", "AT&T");
-		
-		List<Phone> allMyPhones = repo.findAll();
-		for(Phone phones: allMyPhones) {
-			System.out.println(phones.toString());
-		}
-		((AbstractApplicationContext) appContext).close();		
-	}
+//	@Autowired
+//	PhoneRepository repo;
+//	
+//	@Override
+//	public void run(String... args) throws Exception {
+//		ApplicationContext appContext = new AnnotationConfigApplicationContext(BeanConfiguration.class);
+//		
+//		//Using an existing bean
+//		Phone p = appContext.getBean("phone", Phone.class);
+//		p.setCarrier("T-Mobile");
+//		repo.save(p);
+//		
+//		//creating a bean to use - not managed by Spring
+//		Phone c = new Phone("Samsung", "Galaxy Fold", "AT&T");
+//		
+//		List<Phone> allMyPhones = repo.findAll();
+//		for(Phone phones: allMyPhones) {
+//			System.out.println(phones.toString());
+//		}
+//		((AbstractApplicationContext) appContext).close();		
+//	}
 
 }
